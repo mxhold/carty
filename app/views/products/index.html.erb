@@ -1,0 +1,39 @@
+<h1>Ye Olde Donut Shoppe</h1>
+
+<div>
+  <%= image_tag("donuts.jpg", alt: "Donut shop storefront") %>
+  <br>
+  <a href="https://creativecommons.org/licenses/by/2.0/"><%= image_tag("cc.svg", size: "15x15", alt: "Creative Commons Attribution 2.0 License") %></a>
+  <small>
+    <a href="https://www.flickr.com/photos/emmandevin/6065674808">Britt Reints</a>
+  </small>
+</div>
+
+<div id="cart">
+  <p>You have <%= pluralize(current_cart.products.count, "item") %> in your cart:</p>
+  <ul>
+    <% current_cart.products.each do |product| %>
+      <li>
+        <%= product.name %> - <%= product.formatted_price_usd %>
+      </li>
+    <% end %>
+  </ul>
+  <p>Total: <%= current_cart.formatted_total_price_usd %></p>
+</div>
+
+
+<h2>Menu</h2>
+
+<ul>
+<% @products.each do |product| %>
+  <li>
+    <div id="product<%= product.id %>">
+      <%= product.name %> - <%= product.formatted_price_usd %>
+      <%= form_for current_cart, url: cart_path do |f| %>
+        <%= hidden_field_tag "product_id", product.id %>
+        <%= submit_tag "Add to cart" %>
+      <% end %>
+    </div>
+  </li>
+<% end %>
+</ul>

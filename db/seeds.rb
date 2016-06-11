@@ -1,0 +1,5 @@
+Product.create(name: "Glazed donut", price_in_cents_usd: 120)
+Product.create(name: "Chocolate glazed donut", price_in_cents_usd: 160)
+Product.create(name: "Chocolate glazed donut with sprinkles", price_in_cents_usd: 200)
+Product.create(name: "Raspberry jelly donut", price_in_cents_usd: 210)
+Product.create(name: "Blueberry donut", price_in_cents_usd: 160)
