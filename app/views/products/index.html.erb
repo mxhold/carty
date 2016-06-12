@@ -10,6 +10,11 @@
     <% end %>
   </ul>
   <p>Total: <%= current_cart.formatted_total_price_usd %></p>
+  <p>
+    <%= form_for current_cart, url: checkout_cart_path do |f| %>
+      <%= f.submit "Checkout" %>
+    <% end %>
+  </p>
 </div>
 
 

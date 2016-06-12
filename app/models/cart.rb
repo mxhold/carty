@@ -22,4 +22,8 @@ class Cart < ActiveRecord::Base
       products_with_quantities
     end
   end
+
+  def checkout
+    products.clear
+  end
 end

@@ -37,4 +37,17 @@ RSpec.describe Cart, type: :model do
       })
     end
   end
+
+  describe "#checkout" do
+    it "clears the contents of the cart" do
+      product1 = Product.create!(name: "Product1")
+
+      cart = Cart.new
+      cart.add_product(product1)
+
+      cart.checkout
+
+      expect(cart.products).to be_empty
+    end
+  end
 end
