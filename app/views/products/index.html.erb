@@ -12,9 +12,9 @@
 <div id="cart">
   <p>You have <%= pluralize(current_cart.products.count, "item") %> in your cart:</p>
   <ul>
-    <% current_cart.products.each do |product| %>
+    <% current_cart.products_with_quantities.each do |product, count| %>
       <li>
-        <%= product.name %> - <%= product.formatted_price_usd %>
+        <%= product.name %> (<%= count %>) - <%= product.formatted_price_usd %>
       </li>
     <% end %>
   </ul>

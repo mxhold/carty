@@ -20,4 +20,21 @@ RSpec.describe Cart, type: :model do
       expect(cart.formatted_total_price_usd).to eql "$3.20"
     end
   end
+
+  describe "#products_with_quantities" do
+    it "return products in the cart with quantities" do
+      product1 = Product.create!(name: "Product1")
+      product2 = Product.create!(name: "Product2")
+
+      cart = Cart.new
+      cart.add_product(product1)
+      cart.add_product(product2)
+      cart.add_product(product2)
+
+      expect(cart.products_with_quantities).to eql({
+        product1 => 1,
+        product2 => 2,
+      })
+    end
+  end
 end
