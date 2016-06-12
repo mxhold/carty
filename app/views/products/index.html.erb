@@ -21,8 +21,8 @@
     <div id="product<%= product.id %>">
       <%= product.name %> - <%= product.formatted_price_usd %>
       <%= form_for current_cart, url: cart_path do |f| %>
-        <%= hidden_field_tag "product_id", product.id %>
-        <%= submit_tag "Add to cart" %>
+        <%= f.hidden_field "product_id", value: product.id %>
+        <%= f.submit "Add to cart" %>
       <% end %>
     </div>
   </li>
