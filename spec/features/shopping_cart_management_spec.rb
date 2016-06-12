@@ -9,10 +9,7 @@ RSpec.feature "Shopping cart management", type: :feature do
     expect(page).to have_content("0 items in your cart")
 
     within("#product1") do
-      click_on("Add to cart")
-    end
-
-    within("#product1") do
+      fill_in("cart_quantity", with: "2")
       click_on("Add to cart")
     end
 
