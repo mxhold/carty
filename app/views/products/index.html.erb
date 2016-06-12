@@ -1,14 +1,5 @@
 <h1>Ye Olde Donut Shoppe</h1>
 
-<div>
-  <%= image_tag("donuts.jpg", alt: "Donut shop storefront") %>
-  <br>
-  <a href="https://creativecommons.org/licenses/by/2.0/"><%= image_tag("cc.svg", size: "15x15", alt: "Creative Commons Attribution 2.0 License") %></a>
-  <small>
-    <a href="https://www.flickr.com/photos/emmandevin/6065674808">Britt Reints</a>
-  </small>
-</div>
-
 <div id="cart">
   <p>You have <%= pluralize(current_cart.products.count, "item") %> in your cart:</p>
   <ul>
